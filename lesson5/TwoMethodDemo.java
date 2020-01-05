@@ -16,7 +16,7 @@ class TwoMethodDemo {
 
                 Thread.sleep(1000);
             }
-            catch(InterruptedException е) {
+            catch(InterruptedException e) {
                 System.out.println("Прервано");
             }
         }
@@ -33,7 +33,7 @@ class TwoMethodDemo {
 
                 Thread.sleep(1000);
             }
-            catch(InterruptedException е) {
+            catch(InterruptedException e) {
                 System.out.println("Прервано");
             }
         }
@@ -50,7 +50,7 @@ class TwoMethodDemo {
 
             Thread.sleep(1000);
         }
-        catch(InterruptedException е) {
+        catch(InterruptedException e) {
             System.out.println("Прервано");
         }
 
