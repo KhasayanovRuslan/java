@@ -1,4 +1,4 @@
-ï»¿class TwoMethodDemo {
+class TwoMethodDemo implements Runnable {
     static final int size = 10000000;
     static final int h = size / 2;
     float[] arr = new float[size];
@@ -17,7 +17,7 @@
                 Thread.sleep(1000);
             }
             catch(InterruptedException e) {
-                System.out.println("ÐŸÑ€ÐµÑ€Ð²Ð°Ð½Ð¾");
+                System.out.println("Ïðåðâàíî");
             }
         }
     }
@@ -34,7 +34,7 @@
                 Thread.sleep(1000);
             }
             catch(InterruptedException e) {
-                System.out.println("ÐŸÑ€ÐµÑ€Ð²Ð°Ð½Ð¾");
+                System.out.println("Ïðåðâàíî");
             }
         }
     }
@@ -51,7 +51,7 @@
             Thread.sleep(1000);
         }
         catch(InterruptedException e) {
-            System.out.println("ÐŸÑ€ÐµÑ€Ð²Ð°Ð½Ð¾");
+            System.out.println("Ïðåðâàíî");
         }
 
         System.out.println(arr);    
@@ -76,12 +76,18 @@
         System.out.println(arr);
     }
 
-    public static void main(String[] args) {
-        TwoMethodDemo tm1 = new TwoMethodDemo();
-        TwoMethodDemo tm2 = new TwoMethodDemo();
+    TwoMethodDemo() {
+        Thread t = new Thread(this);
+        t.start();
+    } 
 
-        new Thread(() -> tm1.method1()).start();
-        new Thread(() -> tm2.method2()).start();
+    public void run() {
+        method1();
+        method2();
+    }
+
+    public static void main(String[] args) {
+        new TwoMethodDemo();
     }
 }
 
