@@ -1,4 +1,4 @@
-class TwoMethodDemo implements Runnable {
+п»їclass TwoMethodDemo implements Runnable {
     static final int size = 10000000;
     static final int h = size / 2;
     float[] arr = new float[size];
@@ -17,7 +17,7 @@ class TwoMethodDemo implements Runnable {
                 Thread.sleep(1000);
             }
             catch(InterruptedException e) {
-                System.out.println("Прервано");
+                System.out.println("РџСЂРµСЂРІР°РЅРѕ");
             }
         }
     }
@@ -34,7 +34,7 @@ class TwoMethodDemo implements Runnable {
                 Thread.sleep(1000);
             }
             catch(InterruptedException e) {
-                System.out.println("Прервано");
+                System.out.println("РџСЂРµСЂРІР°РЅРѕ");
             }
         }
     }
@@ -51,7 +51,7 @@ class TwoMethodDemo implements Runnable {
             Thread.sleep(1000);
         }
         catch(InterruptedException e) {
-            System.out.println("Прервано");
+            System.out.println("РџСЂРµСЂРІР°РЅРѕ");
         }
 
         System.out.println(arr);    
