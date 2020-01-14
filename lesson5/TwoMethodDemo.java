@@ -28,8 +28,8 @@
         public void run() {
             try {
                 long time = System.currentTimeMillis();
-                for (int i = 0; i < h; i++)
-                    a2[i] = (float)(a2[i] * Math.sin(0.2f + i / 5) * Math.cos(0.2f + i / 5) * Math.cos(0.4f + i / 2));
+                for (int i = h; i < size; i++)
+                    a2[i-h] = (float)(a2[i-h] * Math.sin(0.2f + i / 5) * Math.cos(0.2f + i / 5) * Math.cos(0.4f + i / 2));
                 System.out.println(System.currentTimeMillis() - time);
 
                 Thread.sleep(1000);
@@ -40,7 +40,7 @@
         }
     }
 
-    public synchronized void method1() {
+    public synchronized void newValue1() {
         for (int i = 0; i < size; i++) arr[i] = i;
 
         try {
@@ -58,7 +58,7 @@
         System.out.println(arr);
     }
 
-    public synchronized void method2() {
+    public synchronized void newValue2() {
         for (int i = 0; i < size; i++) arr[i] = i;
 
         long time = System.currentTimeMillis();
@@ -83,12 +83,12 @@
     }
 
     public void run() {
-        method2();
+        newValue2();
     }
 
     public static void main(String[] args) {
         TwoMethodDemo tmd = new TwoMethodDemo();
-        tmd.method1();
+        tmd.newValue1();
 
         try {
             tmd.t.join();
