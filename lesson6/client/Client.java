@@ -4,7 +4,7 @@ import java.net.*;
 import java.io.*;
 
 public class Client {
-    int с;
+    private final int с;
     private Socket socket;
     private InputStream in;
     private OutputStream out;
