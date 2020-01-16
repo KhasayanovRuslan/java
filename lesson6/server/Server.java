@@ -1,10 +1,10 @@
-package lesson6;
+п»їpackage lesson6;
 
 import java.net.*;
 import java.io.*;
 
 public class Server {
-    private final int с;
+    private final int СЃ;
     private InputStream in;
     private OutputStream out;
 
@@ -14,20 +14,20 @@ public class Server {
 
         try {
             server = new ServerSocket(8000);
-            System.out.println("Сервер запущен!");
+            System.out.println("РЎРµСЂРІРµСЂ Р·Р°РїСѓС‰РµРЅ!");
 
             while (true) {
                 socket = server.accept();
-                System.out.println("Клиент подключился");
+                System.out.println("РљР»РёРµРЅС‚ РїРѕРґРєР»СЋС‡РёР»СЃСЏ");
                 new Client(this, socket);
             }
 
             BufferedReader br = new BufferedReader(new
                     InputStreamReader(System.in));
             String str;
-            System.out.println("Сервер: ");
-            System.out.println("Bвeдитe строки текста.");
-            System.out.println("Bвeдитe 'q' для завершения.");
+            System.out.println("РЎРµСЂРІРµСЂ: ");
+            System.out.println("BРІeРґРёС‚e СЃС‚СЂРѕРєРё С‚РµРєСЃС‚Р°.");
+            System.out.println("BРІeРґРёС‚e 'q' РґР»СЏ Р·Р°РІРµСЂС€РµРЅРёСЏ.");
             do {
                 str = br.readLine();
                 System.out.println(str);
@@ -37,8 +37,8 @@ public class Server {
 
             out.write(buf);
             
-            while ((с = in.read()) != -1) {
-            System.out.print((char) с);
+            while ((СЃ = in.read()) != -1) {
+            System.out.print((char) СЃ);
             }
         } catch (IOException e) {
             e.printStackTrace();
