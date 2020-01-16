@@ -1,10 +1,10 @@
-package lesson6;
+п»їpackage lesson6;
 
 import java.net.*;
 import java.io.*;
 
 public class Client {
-    int с;
+    int СЃ;
     private Socket socket;
     private InputStream in;
     private OutputStream out;
@@ -17,29 +17,29 @@ public class Client {
             this.in = socket.getInputStream();
             this.out = socket.getOutputStream();
 
-            // сформировать строку запроса
-            //создать поток ввода типа BufferedReader,
-            //используя стандартный поток ввода System.in
+            // СЃС„РѕСЂРјРёСЂРѕРІР°С‚СЊ СЃС‚СЂРѕРєСѓ Р·Р°РїСЂРѕСЃР°
+            //СЃРѕР·РґР°С‚СЊ РїРѕС‚РѕРє РІРІРѕРґР° С‚РёРїР° BufferedReader,
+            //РёСЃРїРѕР»СЊР·СѓСЏ СЃС‚Р°РЅРґР°СЂС‚РЅС‹Р№ РїРѕС‚РѕРє РІРІРѕРґР° System.in
             BufferedReader br = new BufferedReader(new
                     InputStreamReader(System.in));
             String str;
-            System.out.println("Клиент: ");
-            System.out.println("Bвeдитe строки текста.");
-            System.out.println("Bвeдитe 'q' для завершения.");
+            System.out.println("РљР»РёРµРЅС‚: ");
+            System.out.println("BРІeРґРёС‚e СЃС‚СЂРѕРєРё С‚РµРєСЃС‚Р°.");
+            System.out.println("BРІeРґРёС‚e 'q' РґР»СЏ Р·Р°РІРµСЂС€РµРЅРёСЏ.");
             do {
                 str = br.readLine();
                 System.out.println(str);
             } while (!str.equals("q"));
 
-            //преобразовать строку запроса в байты
+            //РїСЂРµРѕР±СЂР°Р·РѕРІР°С‚СЊ СЃС‚СЂРѕРєСѓ Р·Р°РїСЂРѕСЃР° РІ Р±Р°Р№С‚С‹
             byte buf[] = str.getBytes();
 
-            //послать запрос
+            //РїРѕСЃР»Р°С‚СЊ Р·Р°РїСЂРѕСЃ
             out.write(buf);
 
-            // прочитать ответ и вывести его на экран
-            while ((с = in.read()) != -1) {
-                System.out.print((char) с);
+            // РїСЂРѕС‡РёС‚Р°С‚СЊ РѕС‚РІРµС‚ Рё РІС‹РІРµСЃС‚Рё РµРіРѕ РЅР° СЌРєСЂР°РЅ
+            while ((СЃ = in.read()) != -1) {
+                System.out.print((char) СЃ);
             }
         }
         catch (IOException e) {
