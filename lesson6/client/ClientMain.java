@@ -1,4 +1,4 @@
-package Lesson_6.DZ;
+﻿package lesson6;
 
 import java.io.IOException;
 import java.io.PrintWriter;
