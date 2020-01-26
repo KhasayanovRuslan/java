@@ -2,7 +2,19 @@
    1. Первое изменение: создать таблицу blacklist и заполнить ее;
    2. Второе изменение: изменить метод checkBlackList() для использования созданной таблицы.
 */
+public ClientHandler(ServerMain server, Socket socket) {
+try {
+    this.socket = socket;
+    this.server = server;
+    this.in = new DataInputStream(socket.getInputStream());
+    this.out = new DataOutputStream(socket.getOutputStream());
+    //this.blackList = new ArrayList<>();
+    //Первое изменение: создание таблицы
+    stmt.executeUpdate("CREATE TABLE blacklist (id_user VARCHAR(100), id_black_user VARCHAR(100)");
 
+    new Thread(new Runnable() {
+
+// Продолжение первого изменения в цикле
 while (true) {
     String str = in.readUTF();
     if (str.startsWith("/")) {
@@ -19,8 +31,7 @@ while (true) {
             String[] tokens = str.split(" ");
         //  blackList.add(tokens[1]);
 
-            //Первое изменение
-            stmt.executeUpdate("CREATE TABLE blacklist (id_user VARCHAR(100), id_black_user VARCHAR(100)");
+            //Первое изменение: заполнение таблицы
             String thisNick = ClientHandler.this.getNick();
             String idUser = stmt.executeQuery("SELECT id FROM main WHERE nickname = '%s'", thisNick);
             String idBlackUser = stmt.executeQuery("SELECT id FROM main WHERE nickname = '%s'", tokens[1]);
