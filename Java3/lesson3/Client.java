@@ -15,7 +15,7 @@ public class Client {
             in = new DataInputStream(socket.getInputStream());
             out = new DataOutputStream(socket.getOutputStream());
 
-            new Thread(new Runnable() {
+            Thread t = new Thread(new Runnable() {
                 @Override
                 public void run() {
                     byte[] byteCat = null;
@@ -37,27 +37,26 @@ public class Client {
                         e.printStackTrace();
                     }
                 }
-            }).start();
+            });
+            t.start();
+            t.join();
 
-        } catch (IOException e) {
+        } catch (IOException | InterruptedException e) {
             e.printStackTrace();
         } finally {
             try {
-                Thread.sleep(10000);
                 in.close();
-            } catch (IOException | InterruptedException e) {
+            } catch (IOException e) {
                 e.printStackTrace();
             }
             try {
-                Thread.sleep(10000);
                 out.close();
-            } catch (IOException | InterruptedException e) {
+            } catch (IOException e) {
                 e.printStackTrace();
             }
             try {
-                Thread.sleep(10000);
                 socket.close();
-            } catch (IOException | InterruptedException e) {
+            } catch (IOException e) {
                 e.printStackTrace();
             }
         }
