@@ -71,8 +71,8 @@ public class Hero {
         } else {
             position.set(dst);
         }
-        // Следующий код не работает. Не пойму, где я ошибся. Объясните пожалуйста.
-        if (position.dst(Gdx.input.getX(), 720.0f - Gdx.input.getY()) == position.dst(positionApple)) {
+        // Следующий код неправильно работает. Не пойму, где я ошибся. Объясните пожалуйста.
+        if (Gdx.input.getX() == positionApple.x & (720.0f - Gdx.input.getY()) == positionApple.y) {
             projectile.deactivate();
             positionApple.x += 200;
             positionApple.y += 200;
